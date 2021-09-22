@@ -1,0 +1,46 @@
+@{
+    ViewData["Title"] = "Attendance List";
+}
+<div class="page-form-container">
+    <h1 class="display-4">Attendance List</h1>
+    <form>
+        <div class="form-group">
+            <label for="employeeidno">Employee Id No</label>
+            <input id="employeeidno" name="employeeidno" type="text" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="fromdate">Date From</label>
+            <input id="fromdate" name="fromdate" type="text" class="easyui-datebox" value="@System.DateTime.Now.ToShortDateString()"/>
+            To
+            <input id="todate" name="todate" type="text" class="easyui-datebox" value="@System.DateTime.Now.ToShortDateString()"/>
+            <input type="button" value="Search" onclick="Page.Search()"/>
+        </div>
+        <table id="tblDataGrid" class="easyui-datagrid" autoRowHeight="true" 
+            fitColumns="true" url="/Attendance/LoadData" singleSelect="true" title="Attendance List" 
+            rownumbers="false" pagination="true"  >  
+            <thead>                 
+                <tr>
+                    <th field="EmployeeIdNo" width="80">Code</th> 
+                    <th field="Name" width="125">Name</th> 
+                    <th field="StartDateTime" width="120">Start Date Time</th>
+                    <th field="EndDateTime" width="120">End Date Time</th>
+                </tr>  
+            </thead>  
+        </table>
+	    @Html.AntiForgeryToken()
+    </form>
+</div>
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/lib/Toastr/toastr.css" />
+    <link rel="stylesheet" href="~/lib/Toastr/toastr-responsive.css" />
+    <link rel="stylesheet" href="~/lib/jquery-easyui-1.10.0/themes/default/easyui.css" />
+    <link rel="stylesheet" href="~/lib/jquery-easyui-1.10.0/themes/icon.css" />
+}
+@section Scripts
+{
+    <script src="~/lib/Toastr/toastr.js"></script>
+    <script src="~/lib/jquery-easyui-1.10.0/jquery.easyui.min.js"></script>
+    <script src="~/js/attendance.js"></script>
+}

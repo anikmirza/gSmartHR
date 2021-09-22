@@ -1,0 +1,56 @@
+@{
+    ViewData["Title"] = "Profile";
+    string firstname = null == ViewBag.firstname ? "" : ViewBag.firstname;
+    string lastname = null == ViewBag.lastname ? "" : ViewBag.lastname;
+    string email = null == ViewBag.email ? "" : ViewBag.email;
+    string contactno = null == ViewBag.contactno ? "" : ViewBag.contactno;
+    string nationalid = null == ViewBag.nationalid ? "" : ViewBag.nationalid;
+    string imagepath = null == ViewBag.imagepath ? "" : ViewBag.imagepath;
+}
+<div class="page-form-container">
+    <h1 class="display-4">Profile</h1>
+    <form>
+        @if (ViewBag.ErrorMessage != null)
+        {
+        <div class="alert alert-danger" role="alert">@ViewBag.ErrorMessage</div>
+        }
+        <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input id="firstname" name="firstname" type="text" class="form-control" value="@firstname" autofocus/>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input id="lastname" name="lastname" type="text" class="form-control" value="@lastname"/>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="text" class="form-control" value="@email" autofocus/>
+        </div>
+        <div class="form-group">
+            <label for="contactno">Contact No</label>
+            <input id="contactno" name="contactno" type="text" class="form-control" value="@contactno"/>
+        </div>
+        <div class="form-group">
+            <label for="nationalid">National Id</label>
+            <input id="nationalid" name="nationalid" type="text" class="form-control" value="@nationalid"/>
+        </div>
+        <div class="form-group">
+            <label for="nationalid">Profile Picture</label>
+            <img src="@imagepath" alt="Profile Picture" style="height: 100px;"/>
+            <input id="fUpload" type="file" class="form-control" accept="image/png, image/gif, image/jpeg" />
+        </div>
+	    @Html.AntiForgeryToken()
+	    <div><button type="button" class="btn btn-success" onclick="Page.Save()">Save </button></div>
+    </form>
+</div>
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/lib/Toastr/toastr.css" />
+    <link rel="stylesheet" href="~/lib/Toastr/toastr-responsive.css" />
+}
+@section Scripts
+{
+    <script src="~/lib/Toastr/toastr.js"></script>
+    <script src="~/js/profile.js"></script>
+}

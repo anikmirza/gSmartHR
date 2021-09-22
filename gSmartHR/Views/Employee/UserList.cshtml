@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "User List";
+}
+<div class="page-form-container">
+    <h1 class="display-4">User List</h1>
+    <form>
+        <div class="form-group">
+            <label for="username">User Name</label>
+            <input id="username" name="username" type="text" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="role">Role</label>
+            <input id="role" name="role" type="text" class="form-control"/>
+        </div>
+        <div class="form-group">
+        	<input type="button" value="Search" onclick="Page.Search()"/>
+        </div>
+        <table id="tblDataGrid" class="easyui-datagrid" autoRowHeight="true" 
+            fitColumns="true" url="/Employee/LoadUserData" singleSelect="true" title="User List" 
+            rownumbers="false" pagination="true"  >  
+            <thead>                 
+                <tr>
+                    <th field="UserName" width="200">User Name</th> 
+                    <th field="Role" width="125">Role</th> 
+                </tr>  
+            </thead>  
+        </table>
+	    @Html.AntiForgeryToken()
+    </form>
+</div>
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/lib/Toastr/toastr.css" />
+    <link rel="stylesheet" href="~/lib/Toastr/toastr-responsive.css" />
+    <link rel="stylesheet" href="~/lib/jquery-easyui-1.10.0/themes/default/easyui.css" />
+    <link rel="stylesheet" href="~/lib/jquery-easyui-1.10.0/themes/icon.css" />
+}
+@section Scripts
+{
+    <script src="~/lib/Toastr/toastr.js"></script>
+    <script src="~/lib/jquery-easyui-1.10.0/jquery.easyui.min.js"></script>
+    <script src="~/js/userlist.js"></script>
+}

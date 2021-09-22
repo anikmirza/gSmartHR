@@ -1,0 +1,69 @@
+@{
+    ViewData["Title"] = "Employee List";
+}
+<div class="page-form-container">
+    <h1 class="display-4">Employee List</h1>
+    <form>
+        <div class="form-group">
+            <label for="code">Code</label>
+            <input id="code" name="code" type="text" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="text" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="department">Department</label>
+            <input id="department" name="department" type="text" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="designation">Designation</label>
+            <input id="designation" name="designation" type="text" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="cellphone">Cell phone</label>
+            <input id="cellphone" name="cellphone" type="text" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="officename">Office Name</label>
+            <input id="officename" name="officename" type="text" class="form-control"/>
+        </div>
+        <div class="form-group">
+        	<input type="button" value="Search" onclick="Page.Search()"/>
+        </div>
+        <table id="tblDataGrid" class="easyui-datagrid" autoRowHeight="true" 
+            fitColumns="true" url="/Employee/LoadEmployeeData" singleSelect="true" title="Employee List" 
+            rownumbers="false" pagination="true"  >  
+            <thead>                 
+                <tr>
+                    <th field="Code" width="100">Code</th>
+                    <th field="Name" width="100">Name</th>
+                    <th field="Email" width="100">Email</th>
+                    <th field="Department" width="100">Department</th>
+                    <th field="Designation" width="100">Designation</th>
+                    <th field="Cellphone" width="100">Cell phone</th>
+                    <th field="OfficeName" width="100">Office Name</th>
+                </tr>  
+            </thead>  
+        </table>
+	    @Html.AntiForgeryToken()
+    </form>
+</div>
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/lib/Toastr/toastr.css" />
+    <link rel="stylesheet" href="~/lib/Toastr/toastr-responsive.css" />
+    <link rel="stylesheet" href="~/lib/jquery-easyui-1.10.0/themes/default/easyui.css" />
+    <link rel="stylesheet" href="~/lib/jquery-easyui-1.10.0/themes/icon.css" />
+}
+@section Scripts
+{
+    <script src="~/lib/Toastr/toastr.js"></script>
+    <script src="~/lib/jquery-easyui-1.10.0/jquery.easyui.min.js"></script>
+    <script src="~/js/employeelist.js"></script>
+}

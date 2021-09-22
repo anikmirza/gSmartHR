@@ -1,0 +1,1 @@
+Server=localhost;Database=gSmartHR;Trusted_Connection=False;User ID=AnikLogin;Password=aNik$123;
